@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\user;
 use Illuminate\Http\Request;
 
 class userController extends Controller
@@ -13,7 +13,9 @@ class userController extends Controller
      */
     public function index()
     {
-        //
+        $users = user::get();
+        return view('user.index', ['items' => $users]
+    );
     }
 
     /**
@@ -45,7 +47,8 @@ class userController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = user::find($id);
+        dd($user);
     }
 
     /**
@@ -56,7 +59,7 @@ class userController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "editar usuario";
     }
 
     /**
@@ -79,6 +82,6 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        //
+        echo 'eliminar usuario';
     }
 }
