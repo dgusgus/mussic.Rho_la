@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://www.google.com">PLAY</a>
+                    <a href="{{ route('register') }}">PLAY</a>
                  
                 </div>
             </div>

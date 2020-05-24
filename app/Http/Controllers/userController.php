@@ -14,9 +14,13 @@ class userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = DB::table('users')->select('*')->where('users.status', 'activo')->get();
+        $users = DB::table('users')
+            ->select('*')
+            ->where('users.status', 'activo')
+            ->where('first_name', 'LIKE', "%$request->search%")
+            ->get();
         //$users = user::get();
         return view('user.index', ['items' => $users]
     );

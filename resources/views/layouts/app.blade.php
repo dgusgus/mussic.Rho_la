@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'hola') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -90,12 +90,12 @@
                 </li>
                 </ul>
                 <span class="navbar-text">
-                Navbar text with an inline element
+                    Navbar text with an inline element
                 </span>
             </div>
             </nav>
         @else
-            <h3>hola soy tu padre</h3>
+            <h3>porfavor logueate</h3>
         @endauth
 
         <main class="py-4">

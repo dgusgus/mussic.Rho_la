@@ -3,11 +3,17 @@
 @section('content')
     <div class="card container"> 
         <div class ="card-header">
-            <a href="{{ route('user.create')}}" class="btn btn-primary btn-info float-right">Nuevo Usuario</a>
+            
             <section>
-                <div>
+                <div class="form-group container">
+                    <form action="{{ route('user.index') }}" method="GET">
+                        <div class="row">
+                            <input type="text" name="search" id="search" class="form-control">
+                        </div>
+                    </form>
                 </div>
             </section>
+            <a href="{{ route('user.create')}}" class="btn btn-primary btn-info float-right">Nuevo Usuario</a>
         </div>
         <div class="card-body">
             <table class="table">
