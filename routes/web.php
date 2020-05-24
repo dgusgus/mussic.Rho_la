@@ -28,6 +28,5 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('user/destroy/{id}', 'Usercontroller@destroy')->name('user.destroy');
     Route::get('create/user', 'Usercontroller@create')->name('user.create');
     Route::get('store', 'UserController@store')->name('user.store');
+    Route::get('{id}/update', 'UserController@update')->name('user.update');
 });
-
-

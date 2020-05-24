@@ -1,8 +1,9 @@
 @csrf
                 <div class="row form-group">
-                    <label for="username" class="col-4">Nombre</label>
+                    <label for="first_name" class="col-4">Nombre</label>
                     <div class="col-8">
-                        <input type="text" id="first_name" name="first_name" placeholder="Nombre" class="form-control @error('first_name') is-invalid @enderror">
+                        <input type="text" id="first_name" name="first_name" placeholder="Nombre" class="form-control @error('first_name') is-invalid @enderror"
+                        @isset($item) value="{{ $item->first_name}}" @endisset>
                         @error('first_name')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -13,7 +14,8 @@
                 <div class="row form-group">
                     <label for="last_name" class="col-4">Apellido</label>
                     <div class="col-8">
-                        <input type="text" id="last_name" name="last_name" placeholder="Apellido" class="form-control @error('last_name') is-invalid @enderror">
+                        <input type="text" id="last_name" name="last_name" placeholder="Apellido" class="form-control @error('last_name') is-invalid @enderror"
+                        @isset($item) value="{{ $item->last_name}}" @endisset>
                         @error('last_name')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -24,7 +26,8 @@
                 <div class="row form-group">
                     <label for="username" class="col-4">Nombre de Usuario</label>
                     <div class="col-8">
-                        <input type="text" id="username" name="username" placeholder="Nombre de usuario" class="form-control @error('username') is-invalid @enderror">
+                        <input type="text" id="username" name="username" placeholder="Nombre de usuario" class="form-control @error('username') is-invalid @enderror"
+                        @isset($item) value="{{ $item->username}}" @endisset>
                         @error('username')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -35,7 +38,8 @@
                 <div class="row form-group">
                     <label for="email" class="col-4">Email</label>
                     <div class="col-8">
-                        <input type="email" id="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror">
+                        <input type="email" id="email" name="email" placeholder="Email" class="form-control @error('email') is-invalid @enderror"
+                        @isset($item) value="{{ $item->email}}" @endisset>
                         @error('email')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -59,14 +63,14 @@
                     <label for="role" class="col-4">rol de Usuario</label>
                     <div class="col-8">
                         <select id="role" name="role" class="form-control">
-                            <option value="a">Administador</option>
-                            <option value="c">Usuario</option>
+                            <option value="a" @if($item->role === 'a') selected @endif >Administador</option>
+                            <option value="c" @if($item->role === 'c') selected @endif >Usuario</option>
                         </select>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-8 ">
-                        <button class="btn btn-info float-right" type="submit">
+                        <button class="btn btn-info float-right" type="submit" onclick="return confirm('Desea Guardar los cambios realisados ??')">
                             Guardar
                         </button>
                     </div>
