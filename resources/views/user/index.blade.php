@@ -2,6 +2,13 @@
 
 @section('content')
     <div class="card container"> 
+        <div class ="card-header">
+            <a href="{{ route('user.create')}}" class="btn btn-primary btn-info float-right">Nuevo Usuario</a>
+            <section>
+                <div>
+                </div>
+            </section>
+        </div>
         <div class="card-body">
             <table class="table">
                 <thead>
@@ -22,7 +29,7 @@
                             <td>{{ $item->first_name }}</td>
                             <td>{{ $item->last_name }}</td>
                             <td>{{ $item->username }}</td>
-                            <td>{{ $item->rol }}</td>
+                            <td> @include('user.role')</td>
 
                             <td>
                                 <a href="{{ route('user.show', $item->id)}}" class="btn btn-info">Ver</a>

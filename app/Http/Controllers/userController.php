@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\http\requests\validatorUserRequest;
 use App\user;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
 {
@@ -25,7 +27,7 @@ class userController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create'); 
     }
 
     /**
@@ -34,9 +36,21 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ValidatorUserRequest $request)
     {
-        //
+        $user = user::create(
+            [
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'rol' => $request->role,
+                'status' => 'activo',
+            ]
+        );
+        $user->save();
+        return redirect( route('user.index'));
     }
 
     /**
@@ -48,7 +62,8 @@ class userController extends Controller
     public function show($id)
     {
         $user = user::find($id);
-        dd($user);
+        return view('user.show', ['item' => $user]
+    );
     }
 
     /**

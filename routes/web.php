@@ -21,9 +21,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('user', 'Usercontroller@index')->name('user.index');
-Route::get('user/show/{id}', 'Usercontroller@show')->name('user.show');
-Route::get('user/edit/{id}', 'Usercontroller@edit')->name('user.edit');
-Route::get('user/destroy/{id}', 'Usercontroller@destroy')->name('user.destroy');
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('user', 'Usercontroller@index')->name('user.index');
+    Route::get('user/show/{id}', 'Usercontroller@show')->name('user.show');
+    Route::get('user/edit/{id}', 'Usercontroller@edit')->name('user.edit');
+    Route::get('user/destroy/{id}', 'Usercontroller@destroy')->name('user.destroy');
+    Route::get('create/user', 'Usercontroller@create')->name('user.create');
+    Route::get('store', 'UserController@store')->name('user.store');
+});
 
 

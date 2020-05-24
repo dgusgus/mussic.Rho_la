@@ -1,0 +1,9 @@
+@switch($item->rol)
+    @case('a')
+        'Administrador'
+        @break
+    @case('c')
+        'Usuario'
+        @break
+    @default
+@endswitch
