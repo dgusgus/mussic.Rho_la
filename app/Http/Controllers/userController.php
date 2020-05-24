@@ -5,6 +5,7 @@ use App\http\requests\validatorUserRequest;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -15,7 +16,8 @@ class userController extends Controller
      */
     public function index()
     {
-        $users = user::get();
+        $users = DB::table('users')->select('*')->where('users.status', 'activo')->get();
+        //$users = user::get();
         return view('user.index', ['items' => $users]
     );
     }
@@ -116,6 +118,15 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        echo 'eliminar usuario';
+        $user = User::findOrFail($id);
+        if(empty($id)){
+            return redirect()->back();
+        }
+        $user->update(
+            [
+                'status' => 'inactivo'
+            ]
+        );
+        return redirect(route('user.index'));
     }
 }

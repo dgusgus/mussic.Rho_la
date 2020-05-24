@@ -1,5 +1,11 @@
 @csrf
                 <div class="row form-group">
+                    <div class="col-12 ">
+                       <a href="{{ route('user.index')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                    </div>
+                </div>
+
+                <div class="row form-group">
                     <label for="first_name" class="col-4">Nombre</label>
                     <div class="col-8">
                         <input type="text" id="first_name" name="first_name" placeholder="Nombre" class="form-control @error('first_name') is-invalid @enderror"
@@ -63,8 +69,8 @@
                     <label for="role" class="col-4">rol de Usuario</label>
                     <div class="col-8">
                         <select id="role" name="role" class="form-control">
-                            <option value="a" @if($item->role === 'a') selected @endif >Administador</option>
-                            <option value="c" @if($item->role === 'c') selected @endif >Usuario</option>
+                            <option value="a" @isset($item) @if($item->role === 'a') selected @endif @endisset>Administador</option>
+                            <option value="c" @isset($item) @if($item->role === 'c') selected @endif @endisset >Usuario</option>
                         </select>
                     </div>
                 </div>

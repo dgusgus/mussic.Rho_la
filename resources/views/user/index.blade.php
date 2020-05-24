@@ -38,7 +38,7 @@
                                 <a href="{{ route('user.edit', $item->id)}}" class="btn btn-secondary">Editar</a>
                             </td>
                             <td>
-                                <a href="{{ route('user.destroy', $item->id)}}" class="btn btn-danger">Eliminar</a>
+                                <a href="{{ route('user.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('esta seguro de eliminar al usuario')">Eliminar</a>
                             </td>
                         </tr>
                     @endforeach
