@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    RHO_LA.MUSCI (beta 0.2) pro lite
+                    RHO_LA.MuSiC
                 </div>
 
                 <div class="links">
