@@ -10933,3 +10933,50 @@ a.text-dark:focus {
   }
 }
 
+#contenedor{
+  border-radius: 15px;    
+  color:blueviolet;
+  background-color:yellowgreen;
+  }
+  .parte1{
+  width: 50%;
+  height:50%;
+  color:cornflowerblue;
+  transition: 1s;
+  }
+  img{
+      
+      width: 30%;
+      height:80%;
+      border-radius: 35px 35px 35px 35px;    
+      float: left;
+  }
+  article{
+  font-style: italic;
+  }
+  #mimenu{
+  float: right;
+  margin-bottom: 20px;
+  padding: 5px;
+  }
+  .nofloat{
+      clear:both;
+      float: none;
+  }
+  #mimenu ul{
+  line-height: 30px;
+  display:inline;
+  }
+  #mimenu ul li{
+  display: inline-block;
+  margin-left: 30px;
+  border:solid white 1px;
+  border-radius: 15px;
+  }
+  
+  #mimenu ul li a{
+  display: inline-block;
+  color:white;
+  text-decoration: none;
+  
+  }
