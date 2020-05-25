@@ -8,12 +8,13 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+        <link href="{{asset('css/app.css')}}" rel="stylesheet">
+        
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: teal;
+                color: #fff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
@@ -49,7 +50,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: #000;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -79,15 +80,34 @@
                 </div>
             @endif
 
+            <img src="{{ asset('images/audifonos-dj.jpg')}}" alt="">       
             <div class="content">
-                <div class="title m-b-md">
-                    RHO_LA.MUSCI (beta 0.2) pro lite
-                </div>
+                <div id="contenedor">
+                   <div>
+                       <nav id=mimenu>
+                        <ul>
+                        <li>
+                        <a href="{{route('register')}}">Registrarse</a>
+                        </li>
+                        <li>
+                        <a href="{{route('login')}}">Iniciar sesion</a>
+                        </li>
+                        </ul>  
+                       </nav>
+                   <div class="nofloat"></div>
 
-                <div class="links">
-                    <a href="{{ route('register') }}">PLAY</a>
-                 
+                   </div>
+                     <div class="parte1">
+                     <img src="{{ asset('images/images.jpg')}}" alt="" >
+                      </div>
+                      <div class="parte2">
+                      <h1>Rho_la.music</h1>
+                    <span>
+                        Encuentra tu musica preferida
+                    </span>
+                      </div>
                 </div>
+             <article>Disfruta de tu musica </article>
             </div>
         </div>
     </body>
