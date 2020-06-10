@@ -1,7 +1,7 @@
 @csrf
                 <div class="row form-group">
                     <div class="col-12 ">
-                       <a href="{{ route('user.index')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                       <a href="{{ route('home')}}" class="btn btn-primary btn-lg float-right">Atras</a>
                     </div>
                 </div>
 
@@ -21,9 +21,9 @@
                     <label for="avatar" class="col-4">Avatar</label>
                     <div class="col-8">
 
-                        <input type="file" name="avatar">
+                        <input type="file" id="avatar" name="avatar" {{-- class="form-control @error('avatar') is-invalid @enderror" --}}>
     
-                        @isset($item) value="{{ $item->avatar}}" @endisset>
+                        @isset($item) value="{{ $item->avatar }}" @endisset>
                         @error('avatar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -35,7 +35,7 @@
                     <label for="song" class="col-4">Tema musical</label>
                     <div class="col-8">
                     
-                        <input type="file" name="song">
+                        <input type="file" id="song" name="song">
                         
                         @isset($item) value="{{ $item->song}}" @endisset>
                         @error('song')

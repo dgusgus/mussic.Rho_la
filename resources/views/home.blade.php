@@ -3,17 +3,19 @@
 @section('content')
    <div class="card container"> 
         <div class ="card-header">
-            
+
+            {{-- Buscar usuario  --}}
             <section>
                 <div class="form-group container">
-                    <form action="{{ route('user.index') }}" method="GET">
+                    <form action="{{ route('user.index') }}" method="POST">
                         <div class="row">
                             <input type="text" name="search" id="search" class="form-control">
                         </div>
                     </form>
                 </div>
             </section>
-            <a href="{{ route('music.createsong') }}" class="btn btn-primary btn-info float-right">Nuevo Usuario</a>
+            {{-- boton agregar musica --}}
+            <a href="{{ route('music.createsong') }}" class="btn btn-primary btn-info float-right">Agregar musica</a>
         </div>
         <div class="card-body">
             <table class="table">

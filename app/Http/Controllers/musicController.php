@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\http\requests\validatorUserRequest;
-use App\user;
+use App\http\requests\ValidatorMusicRequest;
+use App\http\Controllers\Controller;
+use App\Music;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class musicController extends Controller
@@ -17,7 +19,7 @@ class musicController extends Controller
      */
     public function index()
     {
-        //
+        echo 'index de musica comtroller';
     }
 
     /**
@@ -36,15 +38,31 @@ class musicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function storemusic(Request $request)
+    public function store(Request $request)
     {
+        $muscic_name = $request->muscic_name;
+        try{
+    
+            $file1 = $request->file('avatar');
+            $file2 = $request->file('song');
+            
+            $url1 = time().$file1->getClientOriginalName();
+            $url2 = time().$file2->getClientOriginalName();
+            
+            $file1->move(public_path()."/images/avatarSongs/", $url1);
+            $file2->move(public_path()."/images/songs/", $url2);
+            $Music = Music::create([
+                'muscic_name' => $muscic_name,
+                'avatar' => $url1,
+                'song' => $url2
+            ]);
+            $Music->save();
+
+        }
+        catch(\Exception $ex){
+            return 'se sale';/* redirect()->back() */;
+        }
         /* dd($request->file('avatar')); */
-        return $request;
-        /* $file = array();
-        $file = $request->file('avatar');
-        $name = time().$file->getClientOriginalName();
-        $file->move(public_path().'/images/'. $name);
-        return $name; */
     }
 
     /**

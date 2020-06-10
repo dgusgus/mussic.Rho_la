@@ -29,7 +29,10 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('create/user', 'Usercontroller@create')->name('user.create');
     Route::get('store', 'UserController@store')->name('user.store');
     Route::get('{id}/update', 'UserController@update')->name('user.update');
+
+    Route::get('music/create', 'MusicController@create')->name('music.createsong');
+    Route::post('music/store', 'MusicController@store')->name('music.store');
+    Route::get('index', 'MusicController@index')->name('music.indexsong'); 
 });
 
-Route::get('create', 'MusicController@create')->name('music.createsong');
-Route::get('storemusic', 'MusicController@storemusic')->name('music.storemusic');
+

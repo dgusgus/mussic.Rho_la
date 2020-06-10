@@ -1,15 +1,13 @@
 @extends('layouts.app')
-por aqui añadiremos musicas
 
 @section('content')
     <div class="card-body">
-        <form action="{{ route('music.storemusic') }}" enctype= "multipart/form-data" method="GET">
+        <form action="{{ route('music.store') }}" enctype="multipart/form-data" method="POST" >
             <div class="container">
                 <div class="form-group col-10">
                      @include('music.fieldssong')
                 </div>
             </div>
-            
         </form>
     </div>
 @endsection
