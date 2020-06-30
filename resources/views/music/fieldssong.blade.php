@@ -1,7 +1,7 @@
 @csrf
                 <div class="row form-group">
                     <div class="col-12 ">
-                       <a href="{{ route('home')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                       <a href="{{ route('music.indexsong')}}" class="btn btn-primary btn-lg float-right">Atras</a>
                     </div>
                 </div>
 

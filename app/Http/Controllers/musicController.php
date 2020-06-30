@@ -19,7 +19,10 @@ class musicController extends Controller
      */
     public function index()
     {
-        echo 'index de musica comtroller';
+        $Music = Music::all();
+        return view('music.indexsong', [
+            'items' => $Music
+        ]);
     }
 
     /**
@@ -48,19 +51,28 @@ class musicController extends Controller
             
             $url1 = time().$file1->getClientOriginalName();
             $url2 = time().$file2->getClientOriginalName();
-            
-            $file1->move(public_path()."/images/avatarSongs/", $url1);
-            $file2->move(public_path()."/images/songs/", $url2);
+
+            $type1 = $file1->getClientOriginalExtension();
+            $type2 = $file2->getClientOriginalExtension();
+
+            if($type1 === 'jpg' || $type1 === 'JPG' && $type2 === 'mp3' || $type2 === 'MP3'){
+                $file1->move(public_path()."/images/avatarSongs/", $url1);
+                $file2->move(public_path()."/images/songs/", $url2);
+            }
+            else{
+                return redirect()->back();
+            }
             $Music = Music::create([
                 'muscic_name' => $muscic_name,
                 'avatar' => $url1,
                 'song' => $url2
             ]);
             $Music->save();
+            return redirect(route('music.index'));
 
         }
         catch(\Exception $ex){
-            return 'se sale';/* redirect()->back() */;
+            return redirect()->back();
         }
         /* dd($request->file('avatar')); */
     }
@@ -107,6 +119,11 @@ class musicController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Musics = Music::findOrFail($id);
+        if(empty($id)){
+            return redirect()->back();
+        }
+        $Musics->delete();
+        return redirect(route('music.indexsong'));
     }
 }

@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('music/create', 'MusicController@create')->name('music.createsong');
     Route::post('music/store', 'MusicController@store')->name('music.store');
     Route::get('index', 'MusicController@index')->name('music.indexsong'); 
+    route::get('music/delete{id}','MusicController@destroy')->name('music.delete');
 });
 
 
