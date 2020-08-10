@@ -32,7 +32,7 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->muscic_name }}</td>
                             <td>
-                                <img src="{{asset('/images/avatarSongs/'.$item->avatar) }}" alt="Girl in a jacket" width="500" height="600">
+                                <img src="{{asset('/images/avatarSongs/'.$item->avatar) }}" alt="Girl in a jacket" width="50" height="60">
                             </td>
                             <td>
                                 <audio controls="controls" autoplay="autoplay" loop="loop">
@@ -47,7 +47,7 @@
                                     </button>
                                     
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">Download</a>
+                                        <a class="dropdown-item" href="{{ route('music.Dowload', $item->id)}}">Download</a>
                                         <a class="dropdown-item" href="#">Editar</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="{{ route('music.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('Desea eliminarlo??')">ELIMINAR</a>

@@ -23,7 +23,7 @@
 
                         <input type="file" id="avatar" name="avatar" {{-- class="form-control @error('avatar') is-invalid @enderror" --}}>
     
-                        @isset($item) value="{{ $item->avatar }}" @endisset>
+                        @isset($item) value="{{ $item->avatar }}" @endisset
                         @error('avatar')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>
@@ -37,7 +37,7 @@
                     
                         <input type="file" id="song" name="song">
                         
-                        @isset($item) value="{{ $item->song}}" @endisset>
+                        @isset($item) value="{{ $item->song}}" @endisset
                         @error('song')
                             <span class="invalid-feedback">
                                 <strong>{{ $message}}</strong>

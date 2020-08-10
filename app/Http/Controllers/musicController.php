@@ -45,7 +45,6 @@ class musicController extends Controller
     {
         $muscic_name = $request->muscic_name;
         try{
-    
             $file1 = $request->file('avatar');
             $file2 = $request->file('song');
             
@@ -125,5 +124,17 @@ class musicController extends Controller
         }
         $Musics->delete();
         return redirect(route('music.indexsong'));
+    }
+    public function getDowload($id)
+    {
+        $File3 = Music::findOrFail($id);
+        $newName = 'nicesnippets-pdf-file-'.time().'.pdf';
+        return response()->download($File3.$newName,$id);
+/* 
+        $myFile = public_path("dummy.pdf");
+        $headers = ['Content-Type: application/pdf'];
+        $newName = 'nicesnippets-pdf-file-'.time().'.pdf';
+        return response()->download($myFile, $newName, $headers);
+ */
     }
 }
