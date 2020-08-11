@@ -47,7 +47,10 @@
                                     </button>
                                     
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{ route('music.Dowload', $item->id)}}">Download</a>
+                                    
+                                        <a class="dropdown-item" href="{{ route('music.Download')}}">Download</a>
+
+                                        
                                         <a class="dropdown-item" href="#">Editar</a>
                                         <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="{{ route('music.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('Desea eliminarlo??')">ELIMINAR</a>

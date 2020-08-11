@@ -110,7 +110,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="{{route("user.index")}}" class="nav-link">
                     <i class="fa fa-user" aria-hidden="true"></i>
                     <p>
-                        usuarios
+                        Usuarios
                         <span class="right badge badge-danger"></span>
                     </p>
                     </a>
@@ -159,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">la mejor experiencia musical</h1>
+                    <h1 class="m-0 text-dark">Musica todo el Dia</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -176,11 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="content" margin-right:auto>
             <div class="container-fluid">
                 <div class="row">
-
-                    <main class="py-4">
                         @yield('content')
-                    </main>
-
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -193,8 +189,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
         <div class="p-3">
-        <h5>DENUNCIAS</h5>
-        <p>Sidebar content</p>
+        <h5>Chat</h5>
+        <p>Online</p>
         </div>
     </aside>
     <!-- /.control-sidebar -->

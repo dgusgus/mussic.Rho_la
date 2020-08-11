@@ -19,7 +19,7 @@ class complainController extends Controller
         ]);
         return view('Complaint.indexcomplain');
     }
-    public function create()
+    public function create3()
     {
         return view('complaint.createcomplain'); 
     }

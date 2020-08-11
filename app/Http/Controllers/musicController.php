@@ -30,7 +30,7 @@ class musicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create2()
     {
         return view('music.createsong'); 
     }
@@ -103,7 +103,7 @@ class musicController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\ 
      */
     public function update(UpdateUser $request, $id)
     {
@@ -125,11 +125,13 @@ class musicController extends Controller
         $Musics->delete();
         return redirect(route('music.indexsong'));
     }
-    public function getDowload($id)
+    public function getDownload()
     {
-        $File3 = Music::findOrFail($id);
-        $newName = 'nicesnippets-pdf-file-'.time().'.pdf';
-        return response()->download($File3.$newName,$id);
+        $File = public_path()."/download/info.pdf";
+        $headers = array(
+                'Content-Type:application/pdf',
+        );
+        return \Response::download($File,'filename.pdf',$headers);
 /* 
         $myFile = public_path("dummy.pdf");
         $headers = ['Content-Type: application/pdf'];
