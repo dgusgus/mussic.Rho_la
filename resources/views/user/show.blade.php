@@ -28,8 +28,10 @@
                 </tbody>
             </table>
             <div>
-                <a href="{{ route('user.index')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                <a href="{{ route('music.indexsong')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                @if(auth()->user()->rol==='a' )
                 <a href="{{ route('user.delete', $item->id)}}" class="btn btn-primary btn-danger float-center" onclick="return confirm('esta seguro de eliminar al usuario')">Eliminar</a>
+                @endif
                 <a href="{{ route('user.edit', $item->id)}}" class="btn btn-primary btn-info float-center">Editar</a>
             </div>
         </div>

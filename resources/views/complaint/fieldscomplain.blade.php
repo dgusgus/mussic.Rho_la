@@ -20,8 +20,8 @@
 
                 <div class="row form-group">
                     <label for="complain_text" class="col-4">Denuncia</label>
-                    <div class="col-8">
-                        <textarea type="text" id="complain_text" name="complain_text"></textarea>
+                    <div class="col-1">
+                        <textarea type="text" id="complain_text" name="complain_text" rows="5" cols="65"></textarea>
     
                         @isset($item) value="{{ $item->complain_text }}" @endisset
                         @error('complain_text')

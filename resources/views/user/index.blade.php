@@ -9,6 +9,9 @@
                     <form action="{{ route('user.index') }}" method="GET">
                         <div class="row">
                             <input type="text" name="search" id="search" class="form-control">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -43,9 +46,11 @@
                             <td>
                                 <a href="{{ route('user.edit', $item->id)}}" class="btn btn-secondary">Editar</a>
                             </td>
+                            @if(auth()->user()->rol==='a' )
                             <td>
                                 <a href="{{ route('user.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('esta seguro de eliminar al usuario')">Eliminar</a>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

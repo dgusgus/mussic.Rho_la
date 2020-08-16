@@ -15,7 +15,7 @@
     
                 <div class="row form-group">
                     <div class="col-12 ">
-                       <a href="{{ route('user.index')}}" class="btn btn-primary btn-lg float-right">Atras</a>
+                       <a href="{{ route('music.indexsong')}}" class="btn btn-primary btn-lg float-right">Atras</a>
                     </div>
                 </div>
 
@@ -78,12 +78,13 @@
                         @enderror
                     </div>
                 </div>
-               
                 <div class="row form-group">
                     <label for="role" class="col-4">rol de Usuario</label>
                     <div class="col-8">
                         <select id="role" name="role" class="form-control">
+                        @if(auth()->user()->rol==='a' )
                             <option value="a" @isset($item) @if($item->role === 'a') selected @endif @endisset>Administador</option>
+                        @endif
                             <option value="c" @isset($item) @if($item->role === 'c') selected @endif @endisset >Usuario</option>
                         </select>
                     </div>

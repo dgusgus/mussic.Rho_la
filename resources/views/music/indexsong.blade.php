@@ -7,15 +7,20 @@
             {{-- Buscar usuario  --}}
             <section>
                 <div class="form-group container">
-                    <form action="{{ route('user.index') }}" method="POST">
+                    <form action="{{ route('music.indexsong') }}" method="GET">
                         <div class="row">
                             <input type="text" name="search" id="search" class="form-control">
+                            <button class="btn btn-navbar" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
             </section>
+            @if(auth()->user()->rol==='a' )
             {{-- boton agregar musica --}}
             <a href="{{ route('music.createsong') }}" class="btn btn-primary btn-info float-right">Agregar musica</a>
+            @endif
         </div>
         <div class="card-body">
             <table class="table">
@@ -50,18 +55,21 @@
                                     
                                         <a class="dropdown-item" href="{{ route('music.Download')}}">Download</a>
 
-                                        
-                                        <a class="dropdown-item" href="#">Editar</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{ route('music.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('Desea eliminarlo??')">ELIMINAR</a>
+                                        @if(auth()->user()->rol==='a' )
+                                            <a class="dropdown-item" href="#">Editar</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{{ route('music.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('Desea eliminarlo??')">ELIMINAR</a>
+                                        @endif
                                     </div>
                                 </div>
                             </td>
                         </tr>
                     @endforeach
+                    
                 </tbody>
 
             </table>
         </div>
     </div>
 @endsection
+

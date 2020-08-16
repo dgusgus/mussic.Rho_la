@@ -13,7 +13,7 @@ class complainController extends Controller
 {
     public function index()
     {
-        $Complain = Complain::all();
+        $Complain = Complain::All();
         return view('complaint.indexcomplain', [
             'items' => $Complain
         ]);
@@ -34,5 +34,14 @@ class complainController extends Controller
         );
         $Complain->save();
         return redirect( route('complaint.indexcomplain'));
+    }
+    public function destroy($id)
+    {
+        $Complain = Complain::findOrFail($id);
+        if(empty($id)){
+            return redirect()->back();
+        }
+        $Complain->delete();
+        return redirect(route('complaint.indexcomplain')); 
     }
 }

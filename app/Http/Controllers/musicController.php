@@ -17,12 +17,20 @@ class musicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $Music = Music::all();
+       /*  $Music = Music::all();
         return view('music.indexsong', [
             'items' => $Music
-        ]);
+        ]); */
+
+        $Music = DB::table('music')
+        ->select('*')
+        ->where('muscic_name', 'LIKE', "%$request->search%")
+        ->get();
+        
+        //$users = user::get();
+        return view('music.indexsong', ['items' => $Music]);
     }
 
     /**
@@ -127,16 +135,11 @@ class musicController extends Controller
     }
     public function getDownload()
     {
-        $File = public_path()."/download/info.pdf";
+        $pathToFile = public_path()."/images/songs/info.pdf";
         $headers = array(
                 'Content-Type:application/pdf',
         );
-        return \Response::download($File,'filename.pdf',$headers);
-/* 
-        $myFile = public_path("dummy.pdf");
-        $headers = ['Content-Type: application/pdf'];
-        $newName = 'nicesnippets-pdf-file-'.time().'.pdf';
-        return response()->download($myFile, $newName, $headers);
- */
+        return response()->download($pathToFile, $headers);
+
     }
 }

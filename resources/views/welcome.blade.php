@@ -20,19 +20,6 @@
         <link href="css/clean-blog.min.css" rel="stylesheet">
     </head>
     <body>
-{{--          @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('index') }}">Home</a>
-                @else
-                        <a href="{{ route('login') }}">Ingresar</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Registrarse</a>
-                        @endif
-                @endauth
-                </div>
-         @endif  --}}
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
@@ -68,7 +55,7 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
                     <h1>Musica todo el dia</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <span class="subheading">Conectate con tus emociones con tu musica favorita</span>
                 </div>
                 </div>
             </div>

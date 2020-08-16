@@ -91,14 +91,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
-            {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                <a href="#" class="d-block">Nombre del usuario</a>
+
+                <a href="{{ route('user.show',auth()->user()->id)}}" class="d-block">{{ auth()->user()->username}}</a>
                 </div>
-            </div> --}}
+            </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -106,6 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Add icons to the links using the .nav-icon class
                     with font-awesome or any other icon font library -->
                 
+                @if(auth()->user()->rol==='a' )
                 <li class="nav-item">
                     <a href="{{route("user.index")}}" class="nav-link">
                     <i class="fa fa-user" aria-hidden="true"></i>
@@ -115,6 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </p>
                     </a>
                 </li>
+                @endif
 
                 <li class="nav-item">
                     <a href="{{route("music.indexsong")}}" class="nav-link">
@@ -125,6 +128,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </p>
                     </a>
                 </li>
+
+                @if(auth()->user()->rol==='a' )
                 <li class="nav-item">
                     <a href="{{route("complaint.indexcomplain")}}" class="nav-link">
                    <i class="fa fa-window-close" aria-hidden="true"></i>
@@ -134,17 +139,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </p>
                     </a>
                 </li>
-
+                @endif
+                
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                    <i class="fa fa-comment-o" aria-hidden="true"></i>
+                    <a href="{{route("complaint.createcomplain")}}" class="nav-link">
+                   <i class="fa fa-window-close" aria-hidden="true"></i>
                     <p>
-                        Chat
+                        Hacer Denuncia
                         <span class="right badge badge-danger"></span>
                     </p>
                     </a>
                 </li>
-
+                
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -159,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Musica todo el Dia</h1>
+                    <h1 class="m-0 text-dark"></h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

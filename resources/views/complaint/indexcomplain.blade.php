@@ -27,9 +27,11 @@
                             <td>
                                 <a href="{{ route('user.show', $item->id)}}" class="btn btn-info">Ver</a>
                             </td>
+                            @if(auth()->user()->rol==='a' )
                             <td>
-                                <a href="{{ route('user.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('esta seguro de eliminar al usuario')">Eliminar</a>
+                                <a href="{{ route('complain.delete', $item->id)}}" class="btn btn-danger" onclick="return confirm('esta seguro de eliminar al usuario')">Eliminar</a>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

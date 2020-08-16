@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
     <div class="card-body">
         <form action="{{ route('user.update', $item) }}" method="GET">
