@@ -133,13 +133,15 @@ class musicController extends Controller
         $Musics->delete();
         return redirect(route('music.indexsong'));
     }
-    public function getDownload()
+    public function getDownload($id)
     {
-        $pathToFile = public_path()."/images/songs/info.pdf";
+        $Musics = Music::findOrFail($id);
+/*         $pathToFile = public_path()."/images/songs/info.pdf";
         $headers = array(
                 'Content-Type:application/pdf',
         );
-        return response()->download($pathToFile, $headers);
+        return response()->download($pathToFile, $headers); */
+        return response()->download(public_path('/images/songs/1592429483Bigflo & Oli - Dommage ( 256kbps cbr ).mp3'), 'user song');
 
     }
 }

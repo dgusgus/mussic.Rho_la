@@ -53,7 +53,7 @@
                                     
                                     <div class="dropdown-menu">
                                     
-                                        <a class="dropdown-item" href="{{ route('music.Download')}}">Download</a>
+                                        <a class="dropdown-item" href="{{ route('music.Download',$item->id)}}">Download</a>
 
                                         @if(auth()->user()->rol==='a' )
                                             <a class="dropdown-item" href="#">Editar</a>

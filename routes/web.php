@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('index', 'MusicController@index')->name('music.indexsong'); 
     Route::get('music/delete{id}','MusicController@destroy')->name('music.delete');
 
-    Route::get('music/download','MusicController@getDownload')->name('music.Download');
+    Route::get('music/getDownload{id}','MusicController@getDownload')->name('music.Download');
 
     /* rutas de las denuncias  */
     Route::get('index', 'ComplainController@index')->name('complaint.indexcomplain');
